@@ -1,0 +1,19 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+long long n,m, a, r,d, x;
+
+
+int main(){
+    ios::sync_with_stdio(false);
+    cin>>n>>m>>a;
+    x=0;
+    if (n%a!=0)
+        x=1;
+    r=ceil(n/a)+x;
+    x=0;
+    if (m%a!=0)
+        x=1;
+    d=ceil(m/a)+x;
+    cout<<r*d<<"\n";
+}

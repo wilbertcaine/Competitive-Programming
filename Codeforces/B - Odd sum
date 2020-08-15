@@ -1,0 +1,36 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+int n, s, i;
+short a, po, no;
+
+int main(){
+    cin>>n;
+    for (i=0; i<n; i++){
+        cin>>a;
+        s=max(s+a, s);
+        if (a%2)
+            if (a>0)
+                if (po!=0)
+                    po=min(a, po);
+                else
+                    po=a;
+            else
+                if (no!=0)
+                    no=max(a, no);
+                else
+                    no=a;
+    }
+    if (s%2)
+        cout<<s<<"\n";
+    else{
+        no=-no;
+        if (no==0)
+            a=po;
+        else if (po==0)
+            a=no;
+        else
+            a=min(po, no);
+        cout<<s-a<<"\n";
+    }
+}

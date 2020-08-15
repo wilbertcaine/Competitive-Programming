@@ -1,0 +1,30 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+int i, m, k, u, p=1, v;
+bool  h[1000005];
+
+int main(){
+    ios::sync_with_stdio(0);
+    cin>>m>>m>>k;
+    for (i=0; i<m; i++)
+    {
+        cin>>u;
+        if (u==1){
+            k=0;
+            break;
+        }
+        h[u]=1;
+    }
+    for (i=0; i<k; i++)
+    {
+        cin>>u>>v;
+        if (u==p)
+            p=v;
+        else if (v==p)
+            p=u;
+        if (h[p])
+            break;
+    }
+    cout<<p<<"\n";
+}

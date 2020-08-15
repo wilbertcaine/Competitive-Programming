@@ -1,0 +1,17 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+stack<char> s;
+string x;
+int main(){
+    cin>>x;
+    for (long i=0; i<x.length(); i++)
+        if ((s.size()>0) && (x[i]==s.top()))
+            s.pop();
+        else
+            s.push(x[i]);
+    if (s.size()==0)
+        cout<<"Yes";
+    else
+        cout<<"No";
+}

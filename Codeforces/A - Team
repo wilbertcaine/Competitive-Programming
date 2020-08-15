@@ -1,0 +1,20 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+long long n, p, t;
+bool b;
+
+int main(){
+    cin>>n;
+    for (long long i=0; i<n; i++){
+            p=0;
+        for (long long i=0; i<3; i++){
+            cin>>b;
+            if (b==1)
+                p++;
+        }
+    if (p>1)
+        t++;
+    }
+    cout<<t<<"\n";
+}
