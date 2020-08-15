@@ -1,0 +1,76 @@
+var
+
+ np,i,mi,ma,v:longint;
+
+ an:array[-10000..10000] of longint;
+
+ p:string; 
+
+ 
+
+begin
+
+ 
+
+ readln(np);
+
+ mi:=1;
+
+ 
+
+ for i:=1 to np do
+
+ begin
+
+  readln(p);
+
+ 
+
+  if length(p)=8 then dec(ma)
+
+ 
+
+  else if length(p)=9 then inc(mi)
+
+ 
+
+  else if p[7]='a' then
+
+  begin
+
+   val(copy(p,11,length(p)-10),v);
+
+   inc(ma);
+
+   an[ma]:=v;
+
+  end
+
+ 
+
+  else if p[8]='o' then
+
+  begin
+
+   val(copy(p,12,length(p)-11),v);
+
+   dec(mi);
+
+   an[mi]:=v;
+
+  end;
+
+ 
+
+ end;
+
+ 
+
+ for i:=mi to ma do
+
+  writeln(an[i]);
+
+ 
+
+end.
+

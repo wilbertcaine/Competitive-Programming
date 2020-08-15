@@ -1,0 +1,60 @@
+var
+
+   l,w,i,j,bc,n,x,y:longint;
+
+   c:array[0..25,0..25] of longint;
+
+
+
+procedure fs(x,y:longint);
+
+begin
+
+     if c[x,y]=bc then
+
+     begin
+
+          c[x,y]:=6;
+
+          n:=n+1;
+
+          fs(x+1,y);
+
+          fs(x-1,y);
+
+          fs(x,y+1);
+
+          fs(x,y-1);
+
+     end;
+
+end;
+
+
+
+begin
+
+     readln(l,w);
+
+     for i:=0 to l-1 do
+
+     begin
+
+          for j:=0 to w-1 do begin read(c[i,j]); end;
+
+          readln;
+
+     end;
+
+     readln(x,y);
+
+     bc:=c[x,y];
+
+     fs(x,y);
+
+     writeln(n*(n-1));
+
+     readln;
+
+end.
+

@@ -1,0 +1,84 @@
+#include <bits/stdc++.h>
+
+using namespace std;
+
+
+
+long long d, q, x, y;
+
+bool b;
+
+vector<long long> a;
+
+
+
+long long binse(long long s, long long fi, long long la){
+
+    long long mi = (fi+la)/2;
+
+    if (a[mi]==s)
+
+        return mi;
+
+    else if (s<a[mi])
+
+        return binse(s, fi, mi-1);
+
+    else if (s>a[mi])
+
+        return binse(s, mi+1, la);
+
+}
+
+
+
+int main(){
+
+    scanf("%Ld %Ld",&d,&q);
+
+    for (int I=0; I<d; ++I){
+
+        scanf("%Ld",&x);
+
+        a.push_back(x);
+
+    }
+
+    sort(a.begin(),a.end());
+
+    for (int I=0; I<q; ++I){
+
+        scanf("%Ld",&x);
+
+        b=0;
+
+        for (int K=0; K<d; ++K)
+
+            if (2*a[K]==x){
+
+                y=binse(a[K],0,d-1);
+
+                if ((a[y]==a[y+1])or (a[y]==a[y-1]))
+
+                    b=1;
+
+            }
+
+            else if (binary_search(a.begin(),a.end(),x-a[K]))
+
+                b=1;
+
+        if (b)
+
+            printf("YA");
+
+        else
+
+            printf("TIDAK");
+
+        printf("\n");
+
+    }
+
+}
+

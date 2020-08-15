@@ -1,0 +1,76 @@
+#include <bits/stdc++.h>
+
+using namespace std;
+
+
+
+long long m, c, xv, so=0, sa=0;
+
+vector<long long> o, a;
+
+
+
+int main(){
+
+    scanf("%lld", &m);
+
+
+
+    for (long long i=0; i<m; i++){
+
+        scanf("%lld", &c);
+
+
+
+        for (long long j=0; j<c; j++){
+
+            scanf("%lld", &xv);
+
+            o.push_back(xv);
+
+        }
+
+        sort(o.begin(), o.end());
+
+
+
+        for (long long j=0; j<c; j++){
+
+            scanf("%lld", &xv);
+
+            a.push_back(xv);
+
+        }
+
+        sort(a.begin(), a.end());
+
+
+
+        for (long long mo=c-1,ma=c-1; mo>=0; mo--){
+
+            if (o[mo]>=a[ma]) so++;
+
+            else{
+
+                sa++;
+
+                ma--;
+
+            }
+
+        }
+
+        if (so>=sa) printf("TIDAK\n");
+
+        else printf("YA\n");
+
+        so=sa=0;
+
+        o.clear();
+
+        a.clear();
+
+    }
+
+}
+

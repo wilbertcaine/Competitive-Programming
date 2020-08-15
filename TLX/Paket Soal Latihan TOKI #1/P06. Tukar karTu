@@ -1,0 +1,58 @@
+var
+
+m:array[1..1000] of longint;
+
+n,i,j,x,p:longint;
+
+ 
+
+begin
+
+ 
+
+readln(n);
+
+for i:=1 to n do
+
+begin
+
+readln(m[i]);
+
+end;
+
+ 
+
+for i:=1 to n do
+
+begin
+
+for j:=1 to n-1 do
+
+begin
+
+if m[j]>m[j+1] then
+
+begin
+
+x:=m[j];
+
+m[j]:=m[j+1];
+
+m[j+1]:=x;
+
+p:=p+1;
+
+end;
+
+end;
+
+end;
+
+ 
+
+writeln(p);
+
+ 
+
+end.
+

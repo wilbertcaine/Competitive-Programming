@@ -1,0 +1,78 @@
+var
+
+        n,k,i:longint;
+
+ 
+
+begin
+
+ 
+
+        readln(n,k);
+
+ 
+
+        for i:=1 to n do
+
+        begin
+
+ 
+
+                if i mod k = 0 then
+
+                begin
+
+                        write('*',' ');
+
+                end
+
+ 
+
+                else
+
+                begin
+
+ 
+
+                        if i=n then
+
+                        begin
+
+                                write(i);
+
+                        end
+
+ 
+
+                        else
+
+                        begin
+
+ 
+
+                        write(i,' ');
+
+ 
+
+                        end;
+
+ 
+
+                end;
+
+ 
+
+        end;
+
+ 
+
+        writeln;
+
+ 
+
+        readln;
+
+ 
+
+end.
+

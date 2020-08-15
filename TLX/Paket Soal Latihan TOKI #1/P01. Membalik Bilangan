@@ -1,0 +1,54 @@
+var
+
+a:array[0..9999] of ansistring;
+
+i,j,x:longint;
+
+ 
+
+begin
+
+ 
+
+readln(x);
+
+ 
+
+for i:=1 to x do
+
+begin
+
+readln(a[i]);
+
+for j:=length(a[i]) downto 1 do
+
+begin
+
+if (a[i][length(a[i])]='0') and (length(a[i])>1) then delete(a[i],length(a[i]),1);
+
+end;
+
+end;
+
+ 
+
+for i:=1 to x do
+
+begin
+
+for j:=length(a[i]) downto 1 do
+
+begin
+
+write(a[i][j]);
+
+end;
+
+writeln;
+
+end;
+
+ 
+
+end.
+

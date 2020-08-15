@@ -1,0 +1,24 @@
+uses math;
+
+ 
+
+var
+
+        a:real;
+
+ 
+
+begin
+
+ 
+
+        readln(a);
+
+ 
+
+        writeln(floor(a),' ',ceil(a));
+
+ 
+
+end.
+

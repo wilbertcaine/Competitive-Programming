@@ -1,0 +1,40 @@
+var
+
+   n,p,x,i:longint;
+
+   e:array[1..100] of longint;
+
+
+
+procedure power(n,p:longint);
+
+begin
+
+     if p<n then begin p:=p*3; end
+
+     else if p=n then begin x:=x+1; e[x]:=p; n:=n-e[x]; p:=1 end
+
+     else begin x:=x+1; e[x]:=p div 3; n:=n-e[x]; p:=1 end;
+
+     if n<>0 then begin power(n,p) end;
+
+end;
+
+
+
+begin
+
+     readln(n);
+
+     power(n,1);
+
+     writeln(x);
+
+     for i:=x downto 1 do begin write(e[i]); if i>1 then begin write(' ');  end; end;
+
+     writeln;
+
+     readln;
+
+end.
+

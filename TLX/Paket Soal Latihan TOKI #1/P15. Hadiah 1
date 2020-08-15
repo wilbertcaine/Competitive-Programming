@@ -1,0 +1,40 @@
+var
+
+   np,d,i:longint;
+
+   hp,tp:int64;
+
+   p:array[1..1000000] of longint;
+
+ 
+
+procedure c(e:longint);
+
+begin
+
+     tp:=tp+p[e]-p[e-d];
+
+     if tp>hp then hp:=tp;
+
+     if e<np then c(e+1)
+
+end;
+
+ 
+
+begin
+
+     readln(np,d);
+
+     for i:=1 to np do read(p[i]);
+
+     for i:=1 to d do tp:=tp+p[i];
+
+     hp:=tp;
+
+     if d<>np then c(i+1);
+
+     writeln(hp);
+
+end.
+

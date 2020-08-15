@@ -1,0 +1,78 @@
+var
+
+a : longint;
+
+ 
+
+begin
+
+ 
+
+        readln(a);
+
+ 
+
+        if a < 10 then
+
+         begin
+
+         writeln('satuan');
+
+         end
+
+                else
+
+                 begin
+
+                  if a < 100 then
+
+                  begin
+
+                  writeln('puluhan');
+
+                  end
+
+                        else
+
+                         begin
+
+                         if a < 1000 then
+
+                         begin
+
+                         writeln('ratusan');
+
+                         end
+
+                                else
+
+                                 begin
+
+                                 if a < 10000 then
+
+                                 begin
+
+                                 writeln('ribuan');
+
+                                 end
+
+                                        else
+
+                                         begin
+
+                                         writeln('puluhribuan');
+
+                                         end;
+
+                                end;
+
+                        end;
+
+                end;
+
+ 
+
+ 
+
+end.
+

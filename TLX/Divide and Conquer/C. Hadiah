@@ -1,0 +1,66 @@
+#include <iostream>
+
+using namespace std;
+
+
+
+long long a, b, c, d, x;
+
+
+
+long long p(long long a, long long b)
+
+{
+
+    long long t;
+
+    if (b == 0)
+
+        return (1);
+
+
+
+    t = p(a, b / 2) % d;
+
+    if (b % 2 == 0)
+
+        return ((t * t) % d);
+
+    else
+
+        return (((a * t) % d * t) % d);
+
+}
+
+
+
+int main()
+
+{
+
+    cin >> a >> b >> c >> d;
+
+    x = a;
+
+    for (long long i = 1; i <= c; i++)
+
+    {
+
+        x = p(x, b);
+
+    }
+
+    if (b == 0)
+
+        if (a == 0)
+
+            x = 0;
+
+        else
+
+            x = 1;
+
+    cout << x % d + 1 << endl;
+
+}
+

@@ -1,0 +1,71 @@
+#include <bits/stdc++.h>
+
+using namespace std;
+
+long long n, m, p[50][50], k, mi, ma, t;
+
+bool d[50][50];
+
+string s;
+
+void b(long long v, long long h, long long u)
+{
+
+    if ((v == n - 1) && (h == m - 1) && (u >= mi) && (u <= ma))
+
+        t++;
+
+    d[v][h] = 1;
+
+    if ((d[v + 1][h] == 0) && ((v + 1 >= 0) && (v + 1 < n)))
+
+        b(v + 1, h, u + p[v + 1][h]);
+
+    if ((d[v - 1][h] == 0) && ((v - 1 >= 0) && (v - 1 < n)))
+
+        b(v - 1, h, u + p[v - 1][h]);
+
+    if ((d[v][h + 1] == 0) && ((h + 1 >= 0) && (h + 1 < m)))
+
+        b(v, h + 1, u + p[v][h + 1]);
+
+    if ((d[v][h - 1] == 0) && ((h - 1 >= 0) && (h - 1 < m)))
+
+        b(v, h - 1, u + p[v][h - 1]);
+
+    d[v][h] = 0;
+}
+
+int main()
+{
+
+    cin >> s;
+
+    cin >> n >> m;
+
+    for (long long i = 0; i < n; i++)
+
+        for (long long j = 0; j < m; j++)
+
+            cin >> p[i][j];
+
+    cin >> k;
+
+    for (long long i = 0; i < k; i++)
+    {
+
+        cin >> mi >> ma;
+
+        for (long long i = 0; i < n; i++)
+
+            for (long long j = 0; j < m; j++)
+
+                d[i][j] = 0;
+
+        t = 0;
+
+        b(0, 0, p[0][0]);
+
+        cout << t << "\n";
+    }
+}

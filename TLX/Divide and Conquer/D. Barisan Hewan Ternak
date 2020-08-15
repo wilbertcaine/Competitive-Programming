@@ -1,0 +1,66 @@
+#include <bits/stdc++.h>
+
+using namespace std;
+
+
+
+long long tp, li, lr=0, qu, rk;
+
+vector <long long> ra;
+
+
+
+long long binse(long long s, long long fi, long long la){
+
+    long long mi = (fi+la)/2;
+
+    if ((ra[mi]==s) or ((ra[mi-1]<s)and(ra[mi]>s)))
+
+        return mi+1;
+
+    else if (s<ra[mi])
+
+        return binse(s, fi, mi-1);
+
+    else if (s>ra[mi])
+
+        return binse(s, mi+1, la);
+
+}
+
+
+
+int main(){
+
+    scanf("%d",&tp);
+
+    for (int I=0; I<tp; ++I){
+
+        scanf("%d",&li);
+
+        lr+=li;
+
+        ra.push_back(lr);
+
+    }
+
+    scanf("%d",&qu);
+
+    for (int I=0; I<qu; ++I){
+
+        scanf("%d",&rk);
+
+        if (rk<=ra[0])
+
+            printf("1");
+
+        else
+
+            printf("%d",binse(rk, 0, tp-1));
+
+        printf("\n");
+
+    }
+
+}
+

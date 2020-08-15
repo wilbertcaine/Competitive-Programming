@@ -1,0 +1,122 @@
+var
+
+   l,w,i,j,k,bc,x,y,m,nm,mi,mj,z:longint;
+
+   c,n:array[0..25,0..25] of longint;
+
+   d:array[0..25,0..25] of boolean;
+
+
+
+procedure fs(w,x,y:longint);
+
+begin
+
+     if (c[x,y]=bc) and (d[x,y]=true) then
+
+     begin
+
+          if w=1 then begin d[x,y]:=false; end
+
+          else begin c[x,y]:=0; d[x,y]:=false; end;
+
+          n[i,j]:=n[i,j]+1;
+
+          fs(w,x+1,y);
+
+          fs(w,x-1,y);
+
+          fs(w,x,y+1);
+
+          fs(w,x,y-1);
+
+     end;
+
+end;
+
+
+
+begin
+
+     readln(l,w); for i:=0 to l-1 do begin for j:=0 to w-1 do begin read(c[i,j]); end; readln; end;
+
+     fillchar(d,sizeof(d),true);
+
+     for i:=0 to l-1 do
+
+     begin
+
+          for j:=0 to w-1 do
+
+          begin
+
+               bc:=c[i,j];
+
+               fs(1,i,j);
+
+               if n[i,j]>nm then begin m:=bc; nm:=n[i,j]; mi:=i; mj:=j; end;
+
+          end;
+
+     end;
+
+     fillchar(d,sizeof(d),true);
+
+     bc:=m;
+
+     fs(2,mi,mj);
+
+     for j:=0 to w-1 do
+
+     begin
+
+          for i:=0 to l-1 do
+
+          begin
+
+               if c[i,j]=0 then
+
+               begin
+
+                    for k:=i downto 1 do
+
+                    begin
+
+                         z:=c[k,j];
+
+                         c[k,j]:=c[k-1,j];
+
+                         c[k-1,j]:=z
+
+                    end;
+
+               end;
+
+          end;
+
+     end;
+
+     for i:=0 to l-1 do
+
+     begin
+
+          for j:=0 to w-1 do
+
+          begin
+
+               if c[i,j]<>0 then begin write(c[i,j]); end
+
+               else begin write('.'); end;
+
+               if j<w-1 then begin write(' '); end;
+
+          end;
+
+          writeln;
+
+     end;
+
+     readln;
+
+end.
+

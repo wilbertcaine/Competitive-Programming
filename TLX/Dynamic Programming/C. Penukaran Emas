@@ -1,0 +1,34 @@
+var
+
+   n:longint;
+
+
+
+function c(n:longint):longint;
+
+begin
+
+     if n<12 then begin c:=n; end
+
+     else
+
+     begin
+
+        c:=c(n div 2)+c(n div 3)+c(n div 4);
+
+     end;
+
+end;
+
+
+
+begin
+
+     readln(n);
+
+     writeln(c(n));
+
+     readln;
+
+end.
+

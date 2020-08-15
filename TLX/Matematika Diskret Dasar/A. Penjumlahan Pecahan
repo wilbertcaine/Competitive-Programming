@@ -1,0 +1,68 @@
+var
+
+a,b,c,d,e,f,g,h,fpb,i:int64;
+
+     
+
+begin
+
+     
+
+read(a);
+
+readln(b);
+
+read(c);
+
+readln(d);
+
+    
+
+e:=a*d+c*b;
+
+f:=b*d;
+
+     
+
+if e>f then
+
+begin
+
+g:=f;
+
+h:=e;
+
+end
+
+else
+
+begin
+
+g:=e;
+
+h:=f;
+
+end;
+
+     
+
+repeat
+
+ fpb:=h;
+
+ i:=h;
+
+ h:=g mod h;
+
+ g:=i;
+
+until h=0;
+
+     
+
+writeln(e div fpb,' ',f div fpb);
+
+readln;
+
+end.
+

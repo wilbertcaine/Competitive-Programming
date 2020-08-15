@@ -1,0 +1,106 @@
+label
+
+     ab,cd;
+
+  
+
+var
+
+   b,med1:array[-8000..8000] of longint;
+
+   n,i,x,c,med2,m,j:longint;
+
+   median:real;
+
+   
+
+begin
+
+   
+
+ readln(n);
+
+   
+
+ for i:=1 to n do
+
+ begin
+
+      read(x);
+
+      b[x]:=b[x]+1;
+
+ end;
+
+  
+
+ if n mod 2<>0 then
+
+ begin
+
+      m:=(n div 2)+1;
+
+      for i:=-8000 to 8000 do
+
+      begin
+
+           c:=c+b[i];
+
+           if c>=m then
+
+           begin
+
+                median:=i;
+
+                goto ab;
+
+           end;
+
+      end;
+
+ end
+
+   
+
+ else if n mod 2=0 then
+
+ begin
+
+      med1[1]:=8001;
+
+      m:=n div 2;
+
+      for i:=-8000 to 8000 do
+
+      begin
+
+           c:=c+b[i];
+
+           if c=m then begin j:=j+1; med1[j]:=i; end
+
+           else if (med1[1]<>8001) and (c>=m+1) then begin med2:=i; goto cd; end
+
+           else if c>=m+1 then begin med1[1]:=i; med2:=i; goto cd; end;
+
+      end;
+
+      cd:
+
+      median:=(med1[1]+med2)/2;
+
+      goto ab;
+
+ end;
+
+  
+
+ ab:
+
+   
+
+ writeln(median:0:2);
+
+   
+
+end.
+

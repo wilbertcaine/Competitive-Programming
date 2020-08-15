@@ -1,0 +1,66 @@
+uses math;
+
+var x: array[1..500000]of valreal;  n,i:longint; mi,ma: valreal;
+
+ 
+
+function jum(a:longint; b:valreal):valreal;
+
+var i: longint;
+
+begin
+
+        jum:=0;
+
+        for i:= 1 to a do
+
+                jum:=jum+power(abs(x[i]-b),1.5);
+
+end;
+
+ 
+
+function cek(a,b :valreal):valreal;
+
+var x,y,z,mid : valreal;
+
+begin
+
+        mid:=(a+b)/2;
+
+        x:=jum(n,mid-1e-7);
+
+        y:=jum(n,mid);
+
+        z:=jum(n,mid+1e-7);
+
+        if (x>y) and (y<z) then cek:=mid else
+
+        if y>z then cek:=cek(mid+1e-7,b) else
+
+        if y>x then cek:=cek(a,mid-1e-7);
+
+end;
+
+ 
+
+begin
+
+        readln(n);
+
+        mi:=1000000; ma:=-1000000;
+
+        for i:= 1 to n do begin
+
+                readln(x[i]);
+
+                ma:=max(ma,x[i]);
+
+                mi:=min(mi,x[i]);
+
+        end;
+
+        writeln(cek(mi,ma):0:2);
+
+end.
+

@@ -1,0 +1,130 @@
+var
+
+ np,i,j,t,d,v,f,nap:longint;
+
+ c1,c2,c3:char;
+
+ ap,an:array[0..1000] of longint;
+
+ 
+
+begin
+
+ 
+
+ f:=1;
+
+ 
+
+ readln(np);
+
+ for i:=1 to np do
+
+ begin
+
+ 
+
+  read(c1,c2,c3);
+
+ 
+
+  if (c1='a')and(c2='d')and(c3='d') then
+
+  begin
+
+   inc(nap);
+
+   readln(an[nap],ap[nap]);
+
+   t:=t+ap[nap];
+
+   writeln(t);
+
+  end
+
+ 
+
+  else if (c1='d')and(c2='e')and(c3='l') then
+
+  begin
+
+   readln(d);
+
+   writeln(an[f]);
+
+   t:=t-d;
+
+   v:=0;
+
+   for j:=f to nap do
+
+   begin
+
+    v:=v+ap[j];
+
+    if v>d then
+
+    begin
+
+     ap[j]:=v-d;
+
+     f:=j;
+
+     break;
+
+    end
+
+    else if v=d then
+
+    begin
+
+     f:=j+1;
+
+     break;
+
+    end;
+
+   end;
+
+  end
+
+ 
+
+  else if (c1='r')and(c2='e')and(c3='v') then
+
+  begin
+
+   readln;
+
+   v:=nap;
+
+   for j:=f to ((nap-f) div 2)+f do
+
+   begin
+
+    an[j]:=an[j]+an[v];
+
+    an[v]:=an[j]-an[v];
+
+    an[j]:=an[j]-an[v];
+
+    ap[j]:=ap[j]+ap[v];
+
+    ap[v]:=ap[j]-ap[v];
+
+    ap[j]:=ap[j]-ap[v];
+
+    dec(v);
+
+   end;
+
+  end;
+
+ 
+
+ end;
+
+ 
+
+end.
+

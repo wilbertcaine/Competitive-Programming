@@ -1,0 +1,48 @@
+var
+
+a:array[1..8] of longint;
+
+n,x,j,i:longint;
+
+ 
+
+begin
+
+ 
+
+readln(n); for j:=1 to n do readln(a[j]);
+
+ 
+
+for j:=1 to n do
+
+begin
+
+if a[j]<1 then writeln('TIDAK')
+
+else
+
+begin
+
+x:=0;
+
+for i:=1 to round(sqrt(a[j])) do
+
+begin
+
+if a[j] mod i = 0 then x:=x+1;
+
+end;
+
+if x<3 then writeln('YA')
+
+else writeln('TIDAK');
+
+end;
+
+end;
+
+ 
+
+end.
+

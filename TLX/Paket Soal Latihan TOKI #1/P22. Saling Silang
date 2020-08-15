@@ -1,0 +1,160 @@
+var
+
+   r,c,i,j,k,l,n:integer;
+
+   s:char;
+
+   w:string;
+
+   a:array[1..100,1..100] of char;
+
+   
+
+label
+
+     l1,l2,l3,l4,l5,l6,l7,l8,l10;
+
+   
+
+begin
+
+     readln(r,c);
+
+     for i:=1 to r do
+
+          for j:=1 to c do
+
+          begin
+
+               read(a[i,j]);
+
+               if j<c then read(s)
+
+               else readln;
+
+          end;
+
+     readln(n);
+
+     for i:=1 to n do
+
+     begin
+
+          readln(w);
+
+          for j:=1 to r do
+
+          begin
+
+               for k:=1 to c do
+
+               begin
+
+//1
+
+                    for l:=k to k+length(w)-1 do
+
+                         if a[j,l]<>w[l-k+1] then goto l1;
+
+                    writeln(w,' Y');
+
+                    goto l10;
+
+                    l1:
+
+//2
+
+                    for l:=k downto k-length(w)+1 do
+
+                         if a[j,l]<>w[k-l+1] then goto l2;
+
+                    writeln(w,' Y');
+
+                    goto l10;
+
+                    l2:
+
+//3
+
+                    for l:=j to j+length(w)-1 do
+
+                         if a[l,k]<>w[l-j+1] then goto l3;
+
+                    writeln(w,' Y');
+
+                    goto l10;
+
+                    l3:
+
+//4
+
+                    for l:=j downto j-length(w)+1 do
+
+                         if a[l,k]<>w[j-l+1] then goto l4;
+
+                    writeln(w,' Y');
+
+                    goto l10;
+
+                    l4:
+
+//5
+
+                    for l:=k to k+length(w)-1 do
+
+                         if a[j+l-k,l]<>w[l-k+1] then goto l5;
+
+                    writeln(w,' Y');
+
+                    goto l10;
+
+                    l5:
+
+//6
+
+                    for l:=k to k+length(w)-1 do
+
+                         if a[j+k-l,l]<>w[l-k+1] then goto l6;
+
+                    writeln(w,' Y');
+
+                    goto l10;
+
+                    l6:
+
+//7
+
+                    for l:=k to k+length(w)-1 do
+
+                         if a[j+k-l,l]<>w[length(w)+k-l] then goto l7;
+
+                    writeln(w,' Y');
+
+                    goto l10;
+
+                    l7:
+
+//8
+
+                    for l:=k to k+length(w)-1 do
+
+                         if a[j+l-k,l]<>w[length(w)+k-l] then goto l8;
+
+                    writeln(w,' Y');
+
+                    goto l10;
+
+                    l8:
+
+                    if (j=r) and (k=c) then writeln(w,' T');
+
+               end;
+
+          end;
+
+          l10:
+
+     end;
+
+end.
+

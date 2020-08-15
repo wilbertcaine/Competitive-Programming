@@ -1,0 +1,42 @@
+var
+
+   n,i,j,k:longint;
+
+   r,c:array[1..300] of longint;
+
+   a,ma,mas:real;
+
+   b:boolean;
+
+   
+
+begin
+
+     readln(n);
+
+     for i:=1 to n do readln(c[i],r[i]);
+
+     for i:=1 to n-2 do
+
+          for j:=i+1 to n-1 do
+
+               for k:=j+1 to n do
+
+               begin
+
+                    a:=abs(((c[i]*r[k])+(c[j]*r[i])+(c[k]*r[j])-(c[j]*r[k])-(c[i]*r[j])-(c[k]*r[i]))/2);
+
+                    if (a<>0) and (not b) then begin b:=true; mas:=a; ma:=a end
+
+                    else if (a<mas) and (a<>0) then begin mas:=a; ma:=a end
+
+                    else if a=mas then begin ma:=0 end;
+
+               end;
+
+     if ma=0 then writeln(-1.00:0:2)
+
+     else writeln(ma:0:2);
+
+end.
+

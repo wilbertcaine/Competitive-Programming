@@ -1,0 +1,52 @@
+#include <bits/stdc++.h>
+
+using namespace std;
+
+
+
+long long n, f[101];
+
+string s, d[101][10001];
+
+
+
+int main(){
+
+    cin>>n;
+
+    for (int I=1; I<=100; ++I)
+
+        f[I]=0;
+
+    for (int I=1; I<=n; ++I){
+
+        cin>>s;
+
+        ++f[s.length()];
+
+        d[s.size()][f[s.size()]]=s;
+
+    }
+
+    for (int I=1; I<=100; ++I)
+
+        if (f[I]==0){}
+
+        else if (f[I]==1)
+
+            cout<<d[I][1]<<endl;
+
+        else{
+
+            sort(d[I], d[I]+f[I]+1);
+
+            for (int J=1; J<=f[I]; ++J)
+
+            cout<<d[I][J]<<endl;
+
+        }
+
+
+
+}
+

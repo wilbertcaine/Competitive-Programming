@@ -1,0 +1,24 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+long long d[5][5][50];
+
+long long t(int f, int s, int r){
+    if (r==0)
+        return 1;
+    else if (d[f][s][r]==0)
+        for (int i=1; i<=3; i++){
+            if ((f==0) || (f==s))
+                d[f][s][r] += t(s, i, r-1);
+            else if (i!=6-f-s)
+                    d[f][s][r] += t(s, i, r-1);
+        }
+    return d[f][s][r];
+}
+
+int main(){
+    int l;
+    memset(d, 0, sizeof(d));
+    scanf("%d", &l);
+    printf("%lld\n", t(0, 0,l));
+}

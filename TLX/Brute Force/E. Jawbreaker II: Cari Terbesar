@@ -1,0 +1,68 @@
+var
+
+   l,w,i,j,bc,n,x,y,m:longint;
+
+   c:array[0..25,0..25] of longint;
+
+   d:array[0..25,0..25] of boolean;
+
+
+
+procedure fs(x,y:longint);
+
+begin
+
+     if (c[x,y]=bc) and (d[x,y]=true) then
+
+     begin
+
+          d[x,y]:=false;
+
+          n:=n+1;
+
+          fs(x+1,y);
+
+          fs(x-1,y);
+
+          fs(x,y+1);
+
+          fs(x,y-1);
+
+     end;
+
+end;
+
+
+
+begin
+
+     readln(l,w); for i:=0 to l-1 do begin for j:=0 to w-1 do begin read(c[i,j]); end; readln; end;
+
+     for i:=0 to l-1 do
+
+     begin
+
+          for j:=0 to w-1 do
+
+          begin
+
+               fillchar(d,sizeof(d),true);
+
+               bc:=c[i,j];
+
+               n:=0;
+
+               fs(i,j);
+
+               if n>m then begin m:=n; end;
+
+          end;
+
+     end;
+
+     writeln(m*(m-1));
+
+     readln;
+
+end.
+

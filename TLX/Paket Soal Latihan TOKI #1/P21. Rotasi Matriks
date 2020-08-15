@@ -1,0 +1,136 @@
+var
+
+   n,i,j,x,y:longint;
+
+   a,b:array[1..75,1..75] of longint;
+
+  
+
+label
+
+     l1,l2,l3,l4;
+
+  
+
+begin
+
+     readln(n,n);
+
+     for i:=1 to n do
+
+     begin
+
+          for j:=1 to n do read(a[i,j]);
+
+          readln;
+
+     end;
+
+     readln(n,n);
+
+     for i:=1 to n do
+
+     begin
+
+          for j:=1 to n do read(b[i,j]);
+
+          readln;
+
+     end;
+
+  
+
+     for i:=1 to n do
+
+          for j:=1 to n do
+
+               if a[i,j]<>b[i,j] then goto l1;
+
+     writeln('0');
+
+     exit;
+
+     l1:
+
+  
+
+     x:=n;
+
+     for i:=1 to n do
+
+     begin
+
+          for j:=1 to n do
+
+               if a[i,j]<>b[j,x] then goto l2;
+
+          x:=x-1;
+
+     end;
+
+     writeln('90');
+
+     exit;
+
+     l2:
+
+  
+
+     y:=n;
+
+     for i:=1 to n do
+
+     begin
+
+          x:=n;
+
+          for j:=1 to n do
+
+          begin
+
+               if a[i,j]<>b[y,x] then goto l3;
+
+               x:=x-1;
+
+          end;
+
+          y:=y-1;
+
+     end;
+
+     writeln('180');
+
+     exit;
+
+     l3:
+
+  
+
+     for i:=1 to n do
+
+     begin
+
+          x:=n;
+
+          for j:=1 to n do
+
+          begin
+
+               if a[i,j]<>b[x,i] then goto l4;
+
+               x:=x-1;
+
+          end;
+
+     end;
+
+     writeln('270');
+
+     exit;
+
+     l4:
+
+     writeln('tidak sama');
+
+end.
+

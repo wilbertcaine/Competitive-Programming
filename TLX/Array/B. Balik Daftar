@@ -1,0 +1,44 @@
+var
+
+   a:array[1..25000] of integer;
+
+   i,b:longint;
+
+ 
+
+begin
+
+ 
+
+     i:=0;
+
+ 
+
+     while not eof do
+
+     begin
+
+          i:=i+1;
+
+          readln(a[i]);
+
+     end;
+
+ 
+
+     for b:=i downto 1 do
+
+     begin
+
+          writeln(a[b]);
+
+     end;
+
+ 
+
+     readln;
+
+ 
+
+end.
+

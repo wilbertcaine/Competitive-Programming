@@ -1,0 +1,38 @@
+var
+
+        a,b,c,i:longint;
+
+ 
+
+begin
+
+ 
+
+        readln(a);
+
+ 
+
+        for i:=1 to a do
+
+        begin
+
+                for b:=(a-1) downto i do
+
+                        write(' ');
+
+                for c:=1 to i do
+
+                        write('*');
+
+                writeln;
+
+        end;
+
+ 
+
+        readln;
+
+ 
+
+end.
+

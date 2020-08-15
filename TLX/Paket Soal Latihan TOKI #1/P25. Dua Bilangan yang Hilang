@@ -1,0 +1,36 @@
+#include <bits/stdc++.h>
+
+using namespace std;
+
+
+
+long long n, x;
+
+bool b[1000000];
+
+
+
+int main(){
+
+    cin>>n;
+
+    for (int I=1; I<=100000; ++I)
+
+        b[I]=0;
+
+    for (int I=1; I<=n-2; ++I){
+
+        cin>>x;
+
+        b[x]=1;
+
+    }
+
+    for (int I=1; I<=n; ++I)
+
+        if (b[I]==0)
+
+            cout<<I<<endl;
+
+}
+

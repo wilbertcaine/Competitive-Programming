@@ -1,0 +1,48 @@
+var
+
+  i,a,b,c,t:longint;
+
+  x,y:string;
+
+ 
+
+begin
+
+ 
+
+  readln(a,b);
+
+  str(a,x);
+
+  str(b,y);
+
+ 
+
+  for i:=1 to length(x) do
+
+  begin
+
+    val(x[i],a);
+
+    c:=c+a;
+
+  end;
+
+  for i:=1 to length(y) do
+
+  begin
+
+    val(y[i],b);
+
+    t:=t+(c*b);
+
+  end;
+
+ 
+
+  writeln(t);
+
+ 
+
+end.
+

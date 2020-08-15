@@ -1,0 +1,22 @@
+var
+
+n,i:longint;
+
+a:array[1..8] of longint;
+
+ 
+
+begin
+
+readln(n);
+
+for i:=1 to n do readln(a[i]);
+
+for i:=1 to n do
+
+if a[i] mod 6=0 then writeln('TIDAK')
+
+else writeln('YA');
+
+end.
+

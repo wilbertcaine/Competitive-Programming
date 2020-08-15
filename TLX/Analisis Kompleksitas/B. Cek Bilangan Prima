@@ -1,0 +1,56 @@
+var
+
+a,x,i:longint;
+
+ 
+
+begin
+
+ 
+
+while not eof do
+
+begin
+
+ 
+
+readln(a);
+
+ 
+
+if a<2 then writeln('TIDAK')
+
+ 
+
+else
+
+begin
+
+ 
+
+for i:=2 to trunc(sqrt(a)) do
+
+begin
+
+if a mod i = 0 then x:=a;
+
+end;
+
+ 
+
+if x=a then writeln('TIDAK')
+
+else writeln('YA');
+
+ 
+
+end;
+
+ 
+
+end;
+
+ 
+
+end.
+

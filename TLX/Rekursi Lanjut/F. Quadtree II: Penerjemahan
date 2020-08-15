@@ -1,0 +1,84 @@
+#include <bits/stdc++.h>
+
+using namespace std;
+
+
+
+int i=0, y, x;
+
+string s[10000];
+
+bool b[129][129];
+
+
+
+void d(int a, int y1, int x1, int y2, int x2, int p, int l){
+
+    if ((s[a][l]=='0')and(x1!=y2))
+
+        d(a, y1, x1, y2-(p/2), x2-(p/2), p/2, l+1);
+
+    else if ((s[a][l]=='1')and(x1!=y2))
+
+        d(a, y1, x2-(p/2)+1, y2-(p/2), x2, p/2, l+1);
+
+    else if ((s[a][l]=='2')and(x1!=y2))
+
+        d(a, y2-(p/2)+1, x1, y2, x2-(p/2), p/2, l+1);
+
+    else if ((s[a][l]=='3')and(x1!=y2))
+
+        d(a, y2-(p/2)+1, x2-(p/2)+1, y2, x2, p/2, l+1);
+
+    else
+
+        for (int i1=y1; i1<=y2; i1++)
+
+            for (int i2=x1; i2<=x2; i2++)
+
+                b[i1][i2]=1;
+
+}
+
+
+
+int main(){
+
+
+
+    while ((i==0) or (s[i][0]!='E')){
+
+        i++;
+
+        cin>>s[i];
+
+    }
+
+    cin>>y>>x;
+
+
+
+    for (int j=1; j<=i-1; j++)
+
+        d(j, 1, 1, (int)exp2(ceil(log2(max(y, x)))), (int)exp2(ceil(log2(max(y, x)))), (int)exp2(ceil(log2(max(y, x)))), 1);
+
+    for (int j=1; j<=y; j++)
+
+        for (int k=1; k<=x; k++){
+
+            cout<<b[j][k];
+
+            if (k<x)
+
+                cout<<' ';
+
+            else
+
+                cout<<endl;
+
+        }
+
+
+
+}
+

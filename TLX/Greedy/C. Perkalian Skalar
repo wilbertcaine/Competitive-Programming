@@ -1,0 +1,48 @@
+#include <bits/stdc++.h>
+
+using namespace std;
+
+
+
+long long n, x;
+
+vector<long long> a, b;
+
+
+
+int main(){
+
+    cin>>n;
+
+    for (int I=0; I<n; ++I){
+
+        cin>>x;
+
+        a.push_back(x);
+
+    }
+
+    for (int I=0; I<n; ++I){
+
+        cin>>x;
+
+        b.push_back(x);
+
+    }
+
+    sort(a.begin(),a.end());
+
+    sort(b.begin(),b.end());
+
+    reverse(b.begin(),b.end());
+
+    x=0;
+
+    for (int I=0; I<n; ++I)
+
+        x+=a[I]*b[I];
+
+    cout<<x<<endl;
+
+}
+

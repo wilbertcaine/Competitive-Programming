@@ -1,0 +1,96 @@
+#include <bits/stdc++.h>
+
+using namespace std;
+
+
+
+long long v, b, xp, xe, maa, g=0;
+
+vector<long long> p, e;
+
+
+
+void quickSort(long long l, long long r) {
+
+      long long i=l, j=r, m = p[(l + r) / 2];
+
+      while (i <= j) {
+
+            while (p[i] < m) i++;
+
+            while (p[j] > m) j--;
+
+            if (i <= j) {
+
+                  swap(p[i],p[j]);
+
+                  swap(e[i],e[j]);
+
+                  i++;
+
+                  j--;
+
+            }
+
+      };
+
+      if (l < j) quickSort(l, j);
+
+      if (i < r) quickSort(i, r);
+
+}
+
+
+
+int main(){
+
+
+
+    scanf("%lld %lld", &v, &b);
+
+    for (long long i=0; i<v; i++){
+
+        scanf("%lld %lld", &xp, &xe);
+
+        p.push_back(xp);
+
+        e.push_back(xe);
+
+    }
+
+
+
+    quickSort(0, v-1);
+
+
+
+    for (long long i=0; i<v; i++){
+
+        maa = b/p[i] ;
+
+        if (maa >= e[i]){
+
+            g+=e[i];
+
+            b-=p[i]*e[i];
+
+        }
+
+        else{
+
+            g+=maa;
+
+            break;
+
+        }
+
+    }
+
+
+
+    printf("%lld\n", g);
+
+
+
+}
+

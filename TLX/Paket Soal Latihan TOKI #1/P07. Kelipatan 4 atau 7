@@ -1,0 +1,54 @@
+var
+
+   n,i,t:longint;
+
+   p:array[1..100000] of longint;
+
+   j:array[1..1001000] of int64;
+
+  
+
+begin
+
+  
+
+     readln(n);
+
+     for i:=1 to n do
+
+     begin
+
+          readln(p[i]);
+
+          if p[i]>t then begin t:=p[i]; end;
+
+     end;
+
+  
+
+     for i:=2 to t do
+
+     begin
+
+           if (i mod 4=0) or (i mod 7=0) then begin j[i]:=j[i-1]+i; end
+
+           else begin j[i]:=j[i-1]; end;
+
+     end;
+
+  
+
+     for i:=1 to n do
+
+     begin
+
+          writeln(j[p[i]]);
+
+     end;
+
+     readln;
+
+  
+
+end.
+

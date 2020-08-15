@@ -1,0 +1,56 @@
+var
+
+   n, k, i, j, m: longint;
+
+   x:int64;
+
+   v:array[0..100000] of int64;
+
+
+
+begin
+
+
+
+     readln(n, k);
+
+     for i:=0 to n-1 do
+
+         read(v[i]);
+
+     readln;
+
+     for i:=0 to n-2 do
+
+         for j:=i+1 to n-1 do
+
+             if v[i] > v[j] then
+
+             begin
+
+                  x:=v[i];
+
+                  v[i]:=v[j];
+
+                  v[j]:=x;
+
+             end;
+
+     m:=v[k-1] - v[0];
+
+     for i:=0 to n-k do
+
+     begin
+
+          if v[i+k-1] - v[i] < m then
+
+                m:=v[i+k-1] - v[i];
+
+     end;
+
+     writeln(m);
+
+
+
+end.
+

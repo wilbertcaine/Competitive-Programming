@@ -1,0 +1,230 @@
+var
+
+u,i,j:longint;
+
+l:array[1..10] of string;
+
+b:array[1..10] of longint;
+
+ 
+
+begin
+
+ 
+
+readln(u);
+
+ 
+
+if u>=1000 then
+
+begin
+
+i:=i+1;
+
+repeat
+
+u:=u-1000;
+
+l[i]:='1000 ';
+
+b[i]:=b[i]+1;
+
+until u<1000;
+
+end;
+
+ 
+
+if u>=500 then
+
+begin
+
+i:=i+1;
+
+repeat
+
+u:=u-500;
+
+l[i]:='500 ';
+
+b[i]:=b[i]+1;
+
+until u<500;
+
+end;
+
+ 
+
+if u>=200 then
+
+begin
+
+i:=i+1;
+
+repeat
+
+u:=u-200;
+
+l[i]:='200 ';
+
+b[i]:=b[i]+1;
+
+until u<200;
+
+end;
+
+ 
+
+if u>=100 then
+
+begin
+
+i:=i+1;
+
+repeat
+
+u:=u-100;
+
+l[i]:='100 ';
+
+b[i]:=b[i]+1;
+
+until u<100;
+
+end;
+
+ 
+
+if u>=50 then
+
+begin
+
+i:=i+1;
+
+repeat
+
+u:=u-50;
+
+l[i]:='50 ';
+
+b[i]:=b[i]+1;
+
+until u<50;
+
+end;
+
+ 
+
+if u>=20 then
+
+begin
+
+i:=i+1;
+
+repeat
+
+u:=u-20;
+
+l[i]:='20 ';
+
+b[i]:=b[i]+1;
+
+until u<20;
+
+end;
+
+ 
+
+if u>=10 then
+
+begin
+
+i:=i+1;
+
+repeat
+
+u:=u-10;
+
+l[i]:='10 ';
+
+b[i]:=b[i]+1;
+
+until u<10;
+
+end;
+
+ 
+
+if u>=5 then
+
+begin
+
+i:=i+1;
+
+repeat
+
+u:=u-5;
+
+l[i]:='5 ';
+
+b[i]:=b[i]+1;
+
+until u<5;
+
+end;
+
+ 
+
+if u>=2 then
+
+begin
+
+i:=i+1;
+
+repeat
+
+u:=u-2;
+
+l[i]:='2 ';
+
+b[i]:=b[i]+1;
+
+until u<2;
+
+end;
+
+ 
+
+if u>=1 then
+
+begin
+
+i:=i+1;
+
+repeat
+
+u:=u-1;
+
+l[i]:='1 ';
+
+b[i]:=b[i]+1;
+
+until u<1;
+
+end;
+
+ 
+
+for j:=1 to i do
+
+begin
+
+writeln(l[j],b[j]);
+
+end;
+
+ 
+
+end.
+

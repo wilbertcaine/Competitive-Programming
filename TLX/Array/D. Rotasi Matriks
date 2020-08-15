@@ -1,0 +1,54 @@
+var
+
+a:array[0..99,0..99] of integer;
+
+x,y,i,j:integer;
+
+ 
+
+begin
+
+ 
+
+readln(x,y);
+
+ 
+
+for i:=1 to x do
+
+begin
+
+for j:=1 to y do
+
+begin
+
+read(a[i,j]);
+
+end;
+
+end;
+
+ 
+
+for i:=1 to y do
+
+begin
+
+for j:=x downto 1 do
+
+begin
+
+write(a[j,i]);
+
+if j<>1 then write(' ');
+
+end;
+
+writeln;
+
+end;
+
+ 
+
+end.
+

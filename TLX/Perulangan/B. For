@@ -1,0 +1,2 @@
+var a,b,c,i:integer;begin a:=0;read(b);for i:=1 to b do begin read(c);a:=a+c;end;writeln(a);end.
+

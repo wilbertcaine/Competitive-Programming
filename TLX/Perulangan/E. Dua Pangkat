@@ -1,0 +1,38 @@
+var
+
+a,x,y,i:longint;
+
+ 
+
+begin
+
+ 
+
+readln(a);
+
+x:=1;
+
+ 
+
+for i:=1 to a do
+
+begin
+
+x:=2*x;
+
+if a=x then a:=y;
+
+end;
+
+ 
+
+if a=1 then writeln('TRUE')
+
+else if a=y then writeln('TRUE')
+
+else writeln('FALSE');
+
+ 
+
+end.
+

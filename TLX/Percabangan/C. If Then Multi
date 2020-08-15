@@ -1,0 +1,42 @@
+var
+
+a:integer;
+
+ 
+
+begin
+
+ 
+
+        readln(a);
+
+ 
+
+        if (a>0) and (a mod 2 = 0) then
+
+        begin
+
+        writeln(a);
+
+        end;
+
+ 
+
+        if a=0 then
+
+        begin
+
+        end;
+
+ 
+
+        if a<0 then
+
+        begin
+
+        end;
+
+ 
+
+end.
+

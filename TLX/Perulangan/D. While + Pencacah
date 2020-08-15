@@ -1,0 +1,32 @@
+var
+
+        a,b:integer;
+
+ 
+
+begin
+
+ 
+
+        b:=0;
+
+ 
+
+        while not eof(input) do
+
+        begin
+
+                readln(a);
+
+                b:=b+a;
+
+        end;
+
+ 
+
+        writeln(b);
+
+ 
+
+end.
+

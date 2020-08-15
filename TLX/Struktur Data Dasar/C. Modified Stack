@@ -1,0 +1,116 @@
+var
+
+ c1,c2,c3:char;
+
+ np,i,j,nap,t,d,v:longint;
+
+ an,af:array[1..1000] of longint;
+
+ 
+
+begin
+
+ 
+
+ readln(np);
+
+ for i:=1 to np do
+
+ begin
+
+ 
+
+  read(c1,c2,c3);
+
+ 
+
+  if (c1='a')and(c2='d')and(c3='d') then
+
+  begin
+
+   inc(nap);
+
+   readln(an[nap],af[nap]);
+
+   t:=t+af[nap];
+
+   writeln(t);
+
+  end
+
+ 
+
+  else if (c1='d')and(c2='e')and(c3='l') then
+
+  begin
+
+   readln(d);
+
+   writeln(an[nap]);
+
+   t:=t-d;
+
+   v:=0;
+
+   for j:=nap downto 1 do
+
+   begin
+
+    inc(v,af[j]);
+
+    if v>d then
+
+    begin
+
+     nap:=j;
+
+     af[nap]:=v-d;
+
+     break;
+
+    end
+
+    else if v=d then
+
+    begin
+
+     nap:=j-1;
+
+     break;
+
+    end;
+
+   end;
+
+  end
+
+ 
+
+  else if (c1='a')and(c2='d')and(c3='x') then
+
+  begin
+
+   readln(v);
+
+   for j:=1 to nap do inc(an[j],v);
+
+  end
+
+ 
+
+  else if (c1='d')and(c2='e')and(c3='x') then
+
+  begin
+
+   readln(v);
+
+   for j:=1 to nap do dec(an[j],v);
+
+  end;
+
+ end;
+
+ 
+
+end.
+

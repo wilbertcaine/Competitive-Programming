@@ -1,0 +1,88 @@
+var
+
+a,b:array[1..1000] of longint;
+
+m,n,i,j,k,l,x:longint;
+
+ 
+
+begin
+
+ 
+
+readln(n);
+
+for i:=1 to n do
+
+begin
+
+readln(a[i]);
+
+end;
+
+ 
+
+for i:=1 to n do
+
+begin
+
+k:=1;
+
+for j:=1 to n do
+
+begin
+
+if a[i]>a[j] then
+
+begin
+
+k:=k+1;
+
+end;
+
+end;
+
+b[i]:=k;
+
+end;
+
+ 
+
+for i:=1 to n do
+
+begin
+
+if b[i]<>i then
+
+begin
+
+for j:=1 to n do
+
+begin
+
+if b[j]=i then
+
+begin
+
+b[j]:=b[i];
+
+b[i]:=i;
+
+l:=l+1;
+
+end;
+
+end;
+
+end;
+
+end;
+
+ 
+
+writeln(l);
+
+ 
+
+end.
+

@@ -1,0 +1,82 @@
+var
+
+a,b,c:array[0..99,0..99] of integer;
+
+m,n,p,i,j,k:integer;
+
+  
+
+begin
+
+  
+
+readln(m,n);
+
+  
+
+for i:=1 to m do
+
+begin
+
+for j:=1 to n do
+
+begin
+
+read(a[i,j]);
+
+end;
+
+end;
+
+ 
+
+readln(n,p);
+
+ 
+
+for i:=1 to n do
+
+begin
+
+for j:=1 to p do
+
+begin
+
+read(b[i,j]);
+
+end;
+
+end;
+
+ 
+
+for i:=1 to m do
+
+begin
+
+for j:=1 to p do
+
+begin
+
+for k:=1 to n do
+
+begin
+
+c[i,j]:=(a[i,k]*b[k,j])+c[i,j];
+
+end;
+
+write(c[i,j]);
+
+if j<>p then write(' ');
+
+end;
+
+writeln;
+
+end;
+
+ 
+
+end.
+

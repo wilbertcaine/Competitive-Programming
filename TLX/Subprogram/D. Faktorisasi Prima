@@ -1,0 +1,88 @@
+label
+
+ab;
+
+ 
+
+var
+
+f,p:array[1..1000000] of longint;
+
+a,b,i,j:longint;
+
+  
+
+begin
+
+  
+
+readln(a);
+
+  
+
+j:=1;
+
+  
+
+b:=a;
+
+ 
+
+ab:
+
+  
+
+for i:=2 to a do
+
+begin
+
+if a mod i=0 then
+
+begin
+
+if f[j]<>i then begin j:=j+1; end;
+
+f[j]:=i;
+
+p[j]:=p[j]+1;
+
+a:=a div i;
+
+goto ab;
+
+end;
+
+end;
+
+  
+
+if b=1 then begin writeln('1'); end
+
+  
+
+else
+
+begin
+
+for i:=2 to j do
+
+begin
+
+write(f[i]);
+
+if p[i]>1 then begin write('^',p[i]); end;
+
+if i<>j then begin write(' x '); end;
+
+end;
+
+end;
+
+writeln;
+
+readln;
+
+  
+
+end.
+

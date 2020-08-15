@@ -1,0 +1,64 @@
+var
+
+   n,i,j,x,md,nmd:longint;
+
+   c:ansistring;
+
+   b:boolean;
+
+   w:array[1..3000] of ansistring;
+
+   d:array[1..3000] of longint;
+
+    
+
+ 
+
+begin
+
+     readln(n);
+
+     for i:=1 to n do readln(w[i]);
+
+     readln(c);
+
+     for i:=1 to length(c) do
+
+     begin
+
+          b:=false;
+
+          for j:=1 to n do
+
+               if length(w[j])>=i then
+
+               begin
+
+                    x:=abs(ord(w[j][i])-ord(c[i]));
+
+                    if x>12 then x:=26-x;
+
+                    d[j]:=d[j]+x;
+
+                    if (d[j]<md) or (b=false) then
+
+                    begin
+
+                         b:=true;
+
+                         md:=d[j];
+
+                         nmd:=j;
+
+                    end;
+
+               end;
+
+          for j:=1 to i do write(w[nmd][j]);
+
+          writeln;
+
+     end;
+
+end.
+

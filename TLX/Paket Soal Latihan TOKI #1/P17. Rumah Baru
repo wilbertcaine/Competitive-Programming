@@ -1,0 +1,84 @@
+var
+
+   n,cx,cn,rx,rn,i,j,k,m:longint;
+
+   d1,d2,d3,d4:boolean;
+
+   r,c:array[1..50] of longint;
+
+   s:array[-100..100,-100..100] of longint;
+
+ 
+
+begin
+
+     readln(n);
+
+     cx:=-101;
+
+     rx:=-101;
+
+     cn:=101;
+
+     rn:=101;
+
+     for i:=1 to n do
+
+     begin
+
+          read(c[i]);
+
+          if c[i]>cx then cx:=c[i];
+
+          if c[i]<cn then cn:=c[i];
+
+     end;
+
+     for i:=1 to n do
+
+     begin
+
+          read(r[i]);
+
+          if r[i]>rx then rx:=r[i];
+
+          if r[i]<rn then rn:=r[i];
+
+     end;
+
+     for i:=1 to n do begin s[r[i],c[i]]:=1; end;
+
+     for i:=rn+1 to rx-1 do
+
+     begin
+
+          for j:=cn+1 to cx-1 do
+
+          begin
+
+               for k:=cn to j-1 do begin if s[i,k]=1 then begin d1:=true; break end; end;
+
+               for k:=j+1 to cx do begin if s[i,k]=1 then begin d3:=true; break end; end;
+
+               for k:=i+1 to rx do begin if s[k,j]=1 then begin d2:=true; break end; end;
+
+               for k:=rn to i-1 do begin if s[k,j]=1 then begin d4:=true; break end; end;
+
+               if (d1) and (d2) and (d3) and (d4) then begin m:=m+1 end;
+
+               d1:=false;
+
+               d2:=false;
+
+               d3:=false;
+
+               d4:=false;
+
+          end;
+
+     end;
+
+     writeln(m);
+
+end.
+

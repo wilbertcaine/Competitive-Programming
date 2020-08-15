@@ -1,0 +1,102 @@
+var
+
+   h,i,j,k:longint;
+
+   l,w:array[1..8] of longint;
+
+   s:array[1..8,1..82,1..82] of char;
+
+
+
+label
+
+     a;
+
+
+
+procedure wd(i,j,k:longint);
+
+begin
+
+
+
+     if (s[i,j,k]<>'#') and ((j>0) and (j<l[i]+3)) and ((k>0) and (k<w[i]+3)) then
+
+     begin
+
+          s[i,j,k]:='#';
+
+          wd(i,j-1,k);
+
+          wd(i,j+1,k);
+
+          wd(i,j,k-1);
+
+          wd(i,j,k+1);
+
+     end;
+
+
+
+end;
+
+
+
+begin
+
+     readln(h);
+
+     for i:=1 to h do
+
+     begin
+
+          readln(l[i],w[i]);
+
+          for j:=2 to l[i]+1 do
+
+          begin
+
+               for k:=2 to w[i]+1 do
+
+               begin
+
+                    read(s[i,j,k]);
+
+               end;
+
+               readln;
+
+          end;
+
+     end;
+
+     for i:=1 to h do
+
+     begin
+
+          wd(i,1,1);
+
+          for j:=2 to l[i]+1 do
+
+          begin
+
+               for k:=2 to w[i]+1 do
+
+               begin
+
+                    if s[i,j,k]=' ' then begin writeln('YA'); goto a; end;
+
+               end;
+
+          end;
+
+          writeln('TIDAK');
+
+          a:
+
+     end;
+
+     readln;
+
+end.
+

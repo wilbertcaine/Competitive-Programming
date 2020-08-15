@@ -1,0 +1,26 @@
+var
+
+n,i,a:longint;
+
+ 
+
+begin
+
+ 
+
+readln(n);
+
+for i:=1 to n do
+
+begin
+
+a:=a+i*i;
+
+end;
+
+writeln(a);
+
+ 
+
+end.
+

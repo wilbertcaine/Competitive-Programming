@@ -1,0 +1,34 @@
+var
+
+   a,b:integer;
+
+   op,sp:char;
+
+   x:boolean;
+
+ 
+
+begin
+
+ 
+
+     readln(a, sp, op, sp, b);
+
+ 
+
+     if op='+' then writeln(a+b)
+
+     else if op='-' then writeln(a-b)
+
+     else if op='*' then writeln(a*b)
+
+     else if op='<' then begin x:=a<b; if x then writeln('benar') else writeln('salah'); end
+
+     else if op='>' then begin x:=a>b; if x then writeln('benar') else writeln('salah'); end
+
+     else if op='=' then begin x:=a=b; if x then writeln('benar') else writeln('salah'); end;
+
+ 
+
+end.
+

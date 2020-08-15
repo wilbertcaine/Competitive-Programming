@@ -1,0 +1,180 @@
+var
+
+   i,j,x,y,n:integer;
+
+   a,b:array[1..75,1..75] of integer;
+
+ 
+
+label
+
+        a1,a2,a3,a4,a5,e;
+
+ 
+
+begin
+
+ 
+
+     readln(n,n);
+
+     for i:=1 to n do
+
+     begin
+
+          for j:=1 to n do
+
+          begin
+
+               read(a[i,j]);
+
+          end;
+
+     end;
+
+     readln(n,n);
+
+     for i:=1 to n do
+
+     begin
+
+          for j:=1 to n do
+
+          begin
+
+               read(b[i,j]);
+
+          end;
+
+     end;
+
+ 
+
+     for i:=1 to n do
+
+     begin
+
+          for j:=1 to n do
+
+          begin
+
+               if a[i,j]<>b[i,j] then begin goto a1; end;
+
+          end;
+
+          if i=n then begin writeln('identik'); goto e; end;
+
+     end;
+
+ 
+
+     a1:
+
+     for i:=1 to n do
+
+     begin
+
+          x:=n;
+
+          for j:=1 to n do
+
+          begin
+
+               if a[i,j]<>b[i,x] then begin goto a2; end;
+
+               x:=x-1;
+
+          end;
+
+          if i=n then begin writeln('vertikal'); goto e; end;
+
+     end;
+
+ 
+
+     a2:
+
+     x:=n;
+
+     for i:=1 to n do
+
+     begin
+
+          for j:=1 to n do
+
+          begin
+
+               if a[i,j]<>b[x,j] then begin goto a3; end;
+
+          end;
+
+          x:=x-1;
+
+          if (i=n) and (j=n) then begin writeln('horisontal'); goto e; end;
+
+     end;
+
+ 
+
+     a3:
+
+     for i:=1 to n do
+
+     begin
+
+          for j:=1 to n do
+
+          begin
+
+               if a[i,j]<>b[j,i] then begin goto a4; end;
+
+          end;
+
+          if (i=n) and (j=n) then begin writeln('diagonal kanan bawah'); goto e;; end;
+
+     end;
+
+ 
+
+     a4:
+
+     x:=n;
+
+     for i:=1 to n do
+
+     begin
+
+          y:=n;
+
+          for j:=1 to n do
+
+          begin
+
+               if a[i,j]<>b[y,x] then begin goto a5;  end;
+
+               y:=y-1;
+
+          end;
+
+          x:=x-1;
+
+          if (i=n) and (j=n) then begin writeln('diagonal kiri bawah'); goto e; end;
+
+     end;
+
+ 
+
+     a5:
+
+     writeln('tidak identik');
+
+ 
+
+     e:
+
+     readln;
+
+ 
+
+end.
+

@@ -1,0 +1,82 @@
+var
+
+   n:longint;
+
+   a:array[1..9] of longint;
+
+   u:array[1..9] of boolean;
+
+
+
+procedure z(x:longint);
+
+var
+
+   i:longint;
+
+label
+
+     b;
+
+begin
+
+     if x>n then
+
+     begin
+
+          for i:=2 to n-1 do
+
+          begin
+
+               if ((a[i-1]<a[i]) and (a[i]<a[i+1])) or ((a[i-1]>a[i]) and (a[i]>a[i+1])) then begin goto b; end;
+
+          end;
+
+          for i:=1 to n do begin write(a[i]); end;
+
+          writeln;
+
+          b:
+
+     end
+
+     else
+
+     begin
+
+          for i:=1 to n do
+
+          begin
+
+               if not u[i] then
+
+               begin
+
+                    a[x]:=i;
+
+                    u[i]:=true;
+
+                    z(x+1);
+
+                    u[i]:=false;
+
+               end;
+
+          end;
+
+     end;
+
+end;
+
+
+
+begin
+
+     readln(n);
+
+     z(1);
+
+     readln;
+
+end.
+

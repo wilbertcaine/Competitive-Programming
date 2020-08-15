@@ -1,0 +1,168 @@
+// quadtree pengkodean (kalo gak salah judulnya.. :v)
+
+
+
+var
+
+    x : array[1..128, 1..128] of shortint;
+
+    r,c,i,j : integer;
+
+
+
+procedure p(a1,b1,a2,b2,t : integer; s,c : string);
+
+var
+
+    i,j,q : integer;
+
+    bol : boolean;
+
+
+
+begin
+
+s := s + c;                     // setiap pemanggilan pasti ada kuadrannya terus kodenya
+
+                                // ditambahi ke kode yang belum jadi :v
+
+                                // misalnya gini
+
+                                // kan tadi pemanggilan pertama sengaja dibuat nilai kosong
+
+                                // biar di statment(gini ya tulisannya??) ini gak ada penambahan
+
+                                // karakter cth : tadi kan '1' terus '1' + '' kan tetap '1' :v
+
+                                // untuk pemanggilan selanjutnya pasti kodenya ditambahi..
+
+                                // bentar lagi jadi nopel ni.. :v
+
+
+
+
+
+bol := false;                   // inisialisasi boolean
+
+
+
+q := x[a1,b1];                  // ibaratnya kyk penentu gtu
+
+for i := a1 to a2 do            // pengecekan homogen
+
+    begin
+
+    if bol then break;
+
+    for j := b1 to b2 do
+
+        if x[i,j] <> q then       // jadi kalo misalnya ada yang gak sama
+
+            begin               // maka harus dibagi empat
+
+            bol := true;        // makanya bol nya true :v
+
+            break;
+
+            end;
+
+    end;
+
+if bol then                     // jadi kalo bol dibagi empat deng..
+
+    begin
+
+    t := t div 2;               // t div 2 berarti jaraknya dibagi dua
+
+                                // kan awalnya jaraknya mis 8 (baris kolom uda disamakan)
+
+                                // terus dibagi empat, berarti kan setiap kuadran 4
+
+
+
+    p(a1,b1,a2 - t,b2 - t,t,s,'0');     // kuadran 1 dari nilai awal sampe nilai akhir
+
+                                        // dikurang jarak
+
+    p(a1,b2 - t + 1,a2 - t,b2,t,s,'1'); // yang ini liat aja deh..
+
+    p(a2 - t + 1,b1, a2, b2 - t,t,s,'2');
+
+    p(a2 - t + 1, b2 - t + 1, a2, b2,t,s,'3');
+
+    end
+
+else if q = 1 then writeln(s);  // kan kalo pake algo ini yang homogen 0 juga di cek
+
+                                // karna itu kalo penentunya 1 baru tulis deh kodenya
+
+end;
+
+
+
+begin
+
+fillchar(x,sizeof(x),0);    // inisialisasi array x
+
+readln(r,c);                // baca-baca :3
+
+for i := 1 to r do
+
+    for j := 1 to c do      // baca-baca..
+
+        read(x[i,j]);
+
+
+
+i := 1;                     // inisialisasi i untuk nilai terdekat 2 ^ p
+
+
+
+while ((i < r) or (i < c)) do
+
+    i := i * 2;             // cari nilai terdekat antara dua bilangan :v
+
+r := i; c := i;             // misalnya 2 sama 7 yang terdekat dari 7 kan 8
+
+                            // makanya pake operator or karena bisa aja r atau c yang terbesar
+
+
+
+p(1,1,r,c,i,'1','');        // pemanggilan pertama, nilai awal baris, nilai awal kolom
+
+writeln('END');             // nilai akhir baris, kolom, terus yang '1' kan outputnya cuma yang
+
+                            // homogen 1, makanya '1' duluan :v
+
+                            // yang i itu berarti jarak awal akhir.. xD (dijelasin di atas)
+
+                            // '' nilai kosong karna kuadrannya belum ditentuin karena masih
+
+                            // pemanggilan pertama :v
+
+end.
+
+
+
+
+
+// penjelasan
+
+
+
+// algo ini uda kerurut sendiri karena pemanggilannya mulai dari awal
+
+// cthnya kan pemanggilan '0' terus awalnya '0' lagi duluan berarti kan udah terurut
+
+// kalo gak ngerti push up aja dulu..
+
+
+
+// untuk penambahan 0 seperti di soal uda di fillchar makanya gak perlu ditambah lagi
+
+// sama 0 :v
+
+
+
+// end.
+

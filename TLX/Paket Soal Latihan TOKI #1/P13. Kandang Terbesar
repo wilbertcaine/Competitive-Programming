@@ -1,0 +1,78 @@
+var
+
+   l,w,i,j,a,b,x,y,c,d:longint;
+
+   s:array[1..1000,1..1000] of char;
+
+   t:array[1..1000,1..1000] of longint;
+
+
+
+procedure p(kb,i,j:longint);
+
+begin
+
+     if (s[i,j]='.') and (t[i,j]<>kb) then
+
+     begin
+
+          if kb=1 then begin c:=c+1; end
+
+          else if kb=2 then begin d:=d+1; end;
+
+          t[i,j]:=kb;
+
+          p(kb,i+1,j);
+
+          p(kb,i-1,j);
+
+          p(kb,i,j+1);
+
+          p(kb,i,j-1);
+
+     end;
+
+
+
+end;
+
+
+
+begin
+
+     readln(w,l);
+
+     for i:=1 to l do
+
+     begin
+
+          for j:=1 to w do
+
+          begin
+
+               read(s[i,j]);
+
+               if s[i,j]='K' then begin a:=i; b:=j; end
+
+               else if s[i,j]='B' then begin x:=i; y:=j; end;
+
+          end;
+
+          readln;
+
+     end;
+
+     p(1,a+1,b); p(1,a-1,b); p(1,a,b+1); p(1,a,b-1);
+
+     p(2,x+1,y); p(2,x-1,y); p(2,x,y+1); p(2,x,y-1);
+
+     if c>d then begin writeln('K ',c-d); end
+
+     else if d>c then begin writeln('B ',d-c); end
+
+     else if c=d then begin writeln('SERI'); end;
+
+     readln;
+
+end.
+

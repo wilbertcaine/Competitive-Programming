@@ -1,0 +1,22 @@
+var
+
+xa,ya,xb,yb :longint;
+
+ 
+
+begin
+
+ 
+
+        read(xa, ya, xb, yb);
+
+ 
+
+        writeln(abs(xa-xb) + abs(ya-yb));
+
+ 
+
+ 
+
+end.
+

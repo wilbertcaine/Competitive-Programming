@@ -1,0 +1,68 @@
+var
+
+  a,b,c,a1,a2,b1,b2,c1,c2,k,r,i,t:integer;
+
+  d:array[1..100] of integer;
+
+ 
+
+begin
+
+ 
+
+ 
+
+readln(a,b,c);
+
+ 
+
+readln(a1,a2);
+
+for i:=a1 to a2-1 do begin d[i]:=d[i]+1; end;
+
+k:=a1;
+
+r:=a2;
+
+ 
+
+readln(b1,b2);
+
+for i:=b1 to b2-1 do begin d[i]:=d[i]+1; end;
+
+if b1<k then begin k:=b1; end;
+
+if b2>r then begin r:=b2; end;
+
+ 
+
+readln(c1,c2);
+
+for i:=c1 to c2-1 do begin d[i]:=d[i]+1; end;
+
+if c1<k then begin k:=c1; end;
+
+if c2>r then begin r:=c2; end;
+
+ 
+
+for i:=k to r-1 do
+
+begin
+
+if d[i]=1 then t:=t+a
+
+else if d[i]=2 then t:=t+(2*b)
+
+else if d[i]=3 then t:=t+(3*c);
+
+end;
+
+ 
+
+writeln(t);
+
+ 
+
+end.
+

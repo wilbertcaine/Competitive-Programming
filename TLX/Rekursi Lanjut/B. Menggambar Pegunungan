@@ -1,0 +1,50 @@
+var
+
+   m,i:longint;
+
+
+
+procedure h(t:longint);
+
+begin
+
+     if t>1 then
+
+     begin
+
+          h(t-1);
+
+     end;
+
+     for i:=1 to t do
+
+     begin
+
+          write('*');
+
+     end;
+
+     writeln;
+
+     if t>1 then
+
+     begin
+
+          h(t-1);
+
+     end;
+
+end;
+
+
+
+begin
+
+     readln(m);
+
+     h(m);
+
+     readln;
+
+end.
+

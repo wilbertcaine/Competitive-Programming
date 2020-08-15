@@ -1,0 +1,74 @@
+var
+
+   s:ansistring;
+
+   b,i,j,k,l,r,x:longint;
+
+ 
+
+label
+
+     u;
+
+ 
+
+begin
+
+ 
+
+     readln(s);
+
+     s[length(s)+1]:=' ';
+
+     for i:=1 to length(s)+1 do
+
+     begin
+
+          b:=b+1;
+
+          if s[i]=' ' then
+
+          begin
+
+               l:=i-b+1;
+
+               r:=i-1;
+
+               b:=0;
+
+               for j:=l to i-1 do
+
+               begin
+
+                    if s[j]<>s[r] then begin goto u; end;
+
+                    r:=r-1;
+
+               end;
+
+               for k:=l to i-1 do
+
+               begin
+
+                    if (x>0) and (k=l) then write(' ');
+
+                    write(s[k]);
+
+                    x:=x+1;
+
+               end;
+
+          end; 
+
+          u:
+
+     end;
+
+ 
+
+     writeln;
+
+ 
+
+end.
+

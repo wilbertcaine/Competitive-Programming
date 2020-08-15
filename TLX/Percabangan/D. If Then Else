@@ -1,0 +1,42 @@
+var
+
+a : integer;
+
+ 
+
+begin
+
+ 
+
+        readln(a);
+
+ 
+
+        if a > 0 then
+
+                begin
+
+                writeln('positif');
+
+                end
+
+                        else if a = 0 then
+
+                        begin
+
+                        writeln('nol');
+
+                        end
+
+                                else if a < 0 then
+
+                                begin
+
+                                writeln('negatif');
+
+                                end;
+
+ 
+
+end.
+

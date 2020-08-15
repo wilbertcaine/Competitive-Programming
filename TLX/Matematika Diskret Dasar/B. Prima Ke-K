@@ -1,0 +1,88 @@
+var
+
+   i,j,n,b,x,t,y,k:longint;
+
+   a:array[1..20000] of longint;
+
+   p:array[1..77777] of longint;
+
+   
+
+begin
+
+   
+
+     readln(n);
+
+     for i:=1 to n do
+
+     begin
+
+          readln(a[i]);
+
+          if a[i]>t then begin t:=a[i]; end;
+
+     end;
+
+ 
+
+     j:=1;
+
+     p[1]:=2;
+
+     x:=3;
+
+     y:=1;
+
+ 
+
+     if t=1 then begin end
+
+     else
+
+     begin
+
+ 
+
+     repeat
+
+          b:=0;
+
+          k:=0;
+
+          if x>sqr(p[j]) then begin j:=j+1; end;
+
+          repeat
+
+                k:=k+1;
+
+                if x mod p[k]=0 then begin b:=1; end;
+
+          until k=j;
+
+          if b=0 then begin y:=y+1; p[y]:=x; end;
+
+          x:=x+1;
+
+     until y=t;
+
+ 
+
+     end;
+
+ 
+
+     for i:=1 to n do
+
+     begin
+
+          writeln(p[a[i]]);
+
+     end;
+
+     readln;
+
+   
+
+end.
+
